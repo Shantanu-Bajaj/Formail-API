@@ -75,5 +75,31 @@
       </section>
     </div>
   </body>
-  
+  <script>
+    async function sendRequest() {
+      var name = document.getElementById("name").value;
+      var phone = document.getElementById("phone").value;
+      var email = document.getElementById("emailid").value;
+      var data = {
+        body: {
+          name: name,
+          phone: phone,
+          email: email,
+        },
+        subject: "Contact Details"
+        };
+      // const response = await
+      fetch("https://formail-api.ortigan.dev/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: "TFxunKdqKQ3U7j6A",
+        },
+        body: JSON.stringify(data),
+      });
+      response.json().then((data) => {
+        console.log(data);
+      });
+    }
+  </script>
 </html>
